@@ -3,8 +3,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Layout from "./components/Layout";
 import Articles from "./pages/Articles";
 import Clubs from "./pages/Clubs";
 import Competitions from "./pages/Competitions";
@@ -27,12 +27,12 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/articles" element={<Articles />} />
-          <Route path="/clubs" element={<Clubs />} />
-          <Route path="/competitions" element={<Competitions />} />
-          <Route path="/matches" element={<Matches />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Navigate to="/articles" replace />} />
+          <Route path="/articles" element={<Layout><Articles /></Layout>} />
+          <Route path="/clubs" element={<Layout><Clubs /></Layout>} />
+          <Route path="/competitions" element={<Layout><Competitions /></Layout>} />
+          <Route path="/matches" element={<Layout><Matches /></Layout>} />
+          <Route path="*" element={<Layout><NotFound /></Layout>} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

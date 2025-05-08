@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { FileText, Trophy, Shield, Calendar } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import Layout from "@/components/Layout";
 
 interface NavItemProps {
   href: string;
@@ -53,7 +54,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   const navItems = [
     {
-      href: "/",
+      href: "/articles",
       icon: FileText,
       label: "Articles",
       isActive: currentPath === "/" || currentPath.startsWith("/articles"),

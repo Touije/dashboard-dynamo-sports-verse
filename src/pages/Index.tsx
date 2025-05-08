@@ -1,16 +1,8 @@
 
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const Index = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    // Rediriger vers la page des articles
-    navigate("/articles");
-  }, [navigate]);
-
-  return null;
+  return <Navigate to="/articles" replace />;
 };
 
 export default Index;
