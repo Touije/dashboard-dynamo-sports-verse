@@ -111,10 +111,24 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         </aside>
       )}
 
+      {/* Mobile Header - only shown on mobile */}
+      {isMobile && (
+        <header className="bg-white border-b border-gray-200 p-4 sticky top-0 z-10">
+          <div className="flex flex-col items-center">
+            <img 
+              src="/lovable-uploads/10f730c5-88e8-4306-8411-99ed7ed2cf8f.png" 
+              alt="DRIBA Logo" 
+              className="h-12 w-auto mb-1"
+            />
+            <p className="text-gray-500 text-xs text-center">Les dernières infos et analyses du monde du football Marocain</p>
+          </div>
+        </header>
+      )}
+
       {/* Main Content - adjusted for mobile layout */}
       <main className={cn(
         "flex-1 overflow-y-auto",
-        isMobile ? "pb-20 p-4" : "p-8"
+        isMobile ? "pb-20 p-4 pt-2" : "p-8"
       )}>
         {children}
       </main>
